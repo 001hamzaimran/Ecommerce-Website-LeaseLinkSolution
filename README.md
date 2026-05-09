@@ -74,4 +74,4 @@ Optimized for high-velocity indexing and "Rich Result" visibility:
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
-Built with ❤️ by the LeaseLink Tech Team.
+Built with ❤️ .
