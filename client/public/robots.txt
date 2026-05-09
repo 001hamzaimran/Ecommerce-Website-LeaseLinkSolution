@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leaselinksolution.com/sitemap.xml
