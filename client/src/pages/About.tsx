@@ -3,7 +3,7 @@ import { ShieldCheck, Globe, Zap, Heart, ArrowRight, Award, Users, Star } from '
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
-import heroBanner from '@/assets/banner/all in one products.png';
+import heroBanner from '@/assets/banner/all-in-one-products.png';
 
 const stats = [
   { label: 'Global Partners', value: '150+', icon: Globe },

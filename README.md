@@ -51,7 +51,7 @@ Optimized for high-velocity indexing and "Rich Result" visibility:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/001hamzaimran/Ecommerce-Website.git
+   git clone https://github.com/001hamzaimran/Ecommerce-Website-LeaseLinkSolution.git
    ```
 
 2. **Server Setup:**

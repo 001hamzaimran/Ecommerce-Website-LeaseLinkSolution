@@ -10,11 +10,11 @@ import SEO from '@/components/SEO';
 import { apiFetch } from '@/utils/api';
 
 // Real Banner Images from assets/banner
-import banner1 from '@/assets/banner/all in one products.png';
-import banner2 from '@/assets/banner/office products.png';
-import banner3 from '@/assets/banner/home and kitchen.png';
-import banner4 from '@/assets/banner/beauty products.png';
-import banner5 from '@/assets/banner/pet supplies.png';
+import banner1 from '@/assets/banner/all-in-one-products.png';
+import banner2 from '@/assets/banner/office-products.png';
+import banner3 from '@/assets/banner/home-and-kitchen.png';
+import banner4 from '@/assets/banner/beauty-products.png';
+import banner5 from '@/assets/banner/pet-supplies.png';
 
 const banners = [
   {
