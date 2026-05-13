@@ -156,7 +156,7 @@ const CategoryManager = () => {
             </TableRow>
           </TableHeader>
           <TableBody className="font-body">
-            {categories.map((cat: any) => (
+            {categories?.filter(Boolean).map((cat: any) => (
               <TableRow key={cat._id}>
                 <TableCell>
                   <div className="w-12 h-12 rounded-lg overflow-hidden bg-slate-100">
@@ -169,7 +169,7 @@ const CategoryManager = () => {
                     <DialogTrigger asChild>
                       <Button variant="outline" size="sm" className="rounded-full h-8" onClick={() => setSelectedCategory(cat)}>
                         <ListTree className="w-3 h-3 mr-2" />
-                        {allSubcategories.filter((s: any) => (s.parentCategory?._id || s.parentCategory) === cat._id).length} Subcategories
+                        {allSubcategories.filter((s: any) => s && (s.parentCategory?._id || s.parentCategory) === cat._id).length} Subcategories
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-md">
@@ -187,7 +187,7 @@ const CategoryManager = () => {
                         </div>
                         <div className="space-y-2 max-h-[300px] overflow-y-auto">
                           {allSubcategories
-                            .filter((s: any) => (s.parentCategory?._id || s.parentCategory) === cat._id)
+                            ?.filter((s: any) => s && (s.parentCategory?._id || s.parentCategory) === cat._id)
                             .map((sub: any) => (
                               <div key={sub._id} className="flex items-center justify-between p-2 bg-slate-50 rounded-lg group">
                                 <span className="text-sm font-medium">{sub.name}</span>

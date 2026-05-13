@@ -1,0 +1,19 @@
+{
+  "name": "leaselink-solution",
+  "version": "1.0.0",
+  "description": "E-commerce platform for LeaseLink Solution",
+  "main": "Server/index.js",
+  "type": "module",
+  "scripts": {
+    "install-all": "npm install && npm install --prefix client && npm install --prefix Server",
+    "build": "cd client && npm install && npm run build",
+    "start": "cd Server && npm install && node index.js",
+    "server": "cd Server && nodemon index.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.14"
+  }
+}

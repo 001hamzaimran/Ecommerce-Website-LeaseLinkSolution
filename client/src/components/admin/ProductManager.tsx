@@ -146,7 +146,7 @@ const ProductManager = () => {
       isNew: p.isNew || false,
       imagesLinks: Array.isArray(p.images) ? p.images.filter((img: any) => typeof img === 'string').join(', ') : '',
       variants: Array.isArray(p.variants) && p.variants.length > 0 
-        ? p.variants.map((v: any) => ({ name: v.name, values: Array.isArray(v.values) ? v.values.join(', ') : v.values })) 
+        ? p.variants.filter(Boolean).map((v: any) => ({ name: v.name, values: Array.isArray(v.values) ? v.values.join(', ') : v.values })) 
         : [{ name: "", values: "" }]
     });
     setIsAdding(true);
@@ -203,7 +203,7 @@ const ProductManager = () => {
                         <SelectValue placeholder="Select Category" />
                       </SelectTrigger>
                       <SelectContent>
-                        {categories.map((c: any) => (
+                        {categories?.filter(Boolean).map((c: any) => (
                           <SelectItem key={c._id} value={c._id}>{c.name}</SelectItem>
                         ))}
                       </SelectContent>
@@ -216,7 +216,7 @@ const ProductManager = () => {
                         <SelectValue placeholder={formData.category && subcategories.length === 0 ? "No Subs Found" : "Select Sub"} />
                       </SelectTrigger>
                       <SelectContent>
-                        {subcategories.map((s: any) => (
+                        {subcategories?.filter(Boolean).map((s: any) => (
                           <SelectItem key={s._id} value={s._id}>{s.name}</SelectItem>
                         ))}
                       </SelectContent>
@@ -396,8 +396,8 @@ const ProductManager = () => {
                   {p.featured && <span className="text-[9px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded-full uppercase font-bold">Featured</span>}
                 </TableCell>
                 <TableCell className="text-slate-500 text-xs">
-                  <div>{typeof p.category === 'object' ? p.category.name : 'No Cat'}</div>
-                  <div className="opacity-70 italic">{typeof p.subCategory === 'object' ? p.subCategory.name : 'No Sub'}</div>
+                  <div>{p.category && typeof p.category === 'object' ? p.category.name : 'No Cat'}</div>
+                  <div className="opacity-70 italic">{p.subCategory && typeof p.subCategory === 'object' ? p.subCategory.name : 'No Sub'}</div>
                 </TableCell>
                 <TableCell className="font-semibold">${p.price}</TableCell>
                 <TableCell className="text-right space-x-2">

@@ -6,6 +6,8 @@ import { securityMiddleware } from './Middleware/security.js';
 import categoryRoutes from './Routes/categoryRoutes.js';
 import productRoutes from './Routes/productRoutes.js';
 import subcategoryRoutes from './Routes/subcategoryRoutes.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 
@@ -32,10 +34,22 @@ app.use('/api/products', productRoutes);
 app.use('/api/subcategories', subcategoryRoutes);
 
 
-// Basic Route
-app.get('/', (req, res) => {
-    res.send('API is running...');
-});
+// Serve Static Files in Production
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/dist')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client', 'dist', 'index.html'));
+    });
+} else {
+    // Basic Route
+    app.get('/', (req, res) => {
+        res.send('API is running...');
+    });
+}
 
 const PORT = process.env.PORT || 5000;
 
